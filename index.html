@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Walter+Turncoat" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <title>VIT Cab Share</title>
+
+    <style type="text/css">
+
+      body,html{
+        height: 100%;
+      }
+
+      .main{
+      	height: 100%;
+      }
+      
+      .mynav
+      {
+        background-color: #000 !important;
+        min-height: 0px !important;
+        margin-bottom: 0px !important;
+      }
+
+      .mynav a:hover{
+        color: #8BC34A !important;
+      }
+
+      .navitem
+      {
+        float: right !important;
+        margin-right: 30px !important;
+      }
+
+      .navitem a
+      {
+        color: #ddd !important;
+        border-right: 1px solid #ddd;
+        margin-top : 6px !important;
+        margin-bottom: 6px !important;
+        padding : 1px !important;
+        padding-right: 30px !important;
+        padding-left: 30px !important;
+        font-size: 12px;
+      }
+
+      .navitem1 a{
+        margin-top: 15px; 
+      }
+
+      .mynav1 a
+      {
+        color: black !important;
+        font-size: 17px;
+      }
+
+      .navitem1{
+        float : right !important;
+      }
+
+      .mynav1 a:hover{
+        color: #8BC34A !important;
+      }
+
+      .mynav1 .active1{            
+            background-color: #DCEDC8;
+
+            /* #CCE500 */
+      }
+
+      .mynav1 .active1:hover{
+        /* background-color: #8BC34A !important; */
+        background-color: #CCFF00 !important;
+        
+        
+      }
+
+      .mynav1 .active1 a:hover{
+        color: black !important;
+      } 
+
+      .second-nav{
+        background-color: #fff !important;
+        margin-bottom: 0 !important;
+      }
+
+      .second-nav .container-fluid{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .second-nav .navbar-brand{
+        margin-left:25px !important; 
+        font-size:25px; 
+        font-family: 'Walter Turncoat', cursive; 
+        color: black !important;
+      }
+
+      .second-nav .mynav1{
+        float: right;
+        margin-right: 30px;
+      }
+
+      .image-item{
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        
+      }
+
+      .tab-view li{
+        display: inline-block;
+        padding: 5px 15px 5px 15px;
+        text-align: center;
+        border-bottom: 2px #ddd solid;
+      }
+
+      .tab-view li:hover{
+        background-color: #ddd;
+        border-bottom: 2px grey solid;
+      }
+
+      .tab-view .active{
+        background-color: #ddd;
+        border-bottom: 2px grey solid;
+      }
+
+      .fullimage
+      {
+        height: 100%; 
+        width: 100%;
+        position: relative;
+      }
+
+      .fullimage img{
+        width: 100%; 
+        height: 90%;
+      }
+
+      .image-box{
+        margin-bottom: 0;
+        color:#222
+      }
+
+      .tab-view ul{
+        padding-left:0px;
+        overflow:hidden;
+      }
+
+      .img-text{
+        margin-top: 80px;
+      }
+
+      .img-text h1{
+        margin-top: 50px;
+        margin-bottom: 0;
+      }
+
+      .bottom-text{
+        margin-top: 15;
+      }
+
+      .bottom-text h3{
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      .image-button{
+        margin-top: 80px;
+
+      }
+
+      .image-button button:hover{
+        background-color: #CCFF00;
+      }
+
+      .image-button button{
+        padding:10px 20px 10px 20px; 
+        background-color:#AED581;
+        /* #CCE500 */
+      }
+
+      .options i, .car-discription i{
+        padding: 20px;
+        border-radius: 100%;
+      }
+
+      .options i:hover, .car-discription i:hover{
+        background-color: #9CCC65;
+        /* #CCE400 */
+      }
+
+      .highlight:hover{
+      	background-color: #9CCC65 !important;
+      }
+
+      .highlight{
+      	background-color: #fff !important;
+      	border-radius: 100% !important;
+      }
+
+      .activeoption{
+      	background-color: #9CCC65 !important;
+      }
+
+      .reason .row{
+        margin-top: 30px;
+      }
+
+      .reason .row h4{
+        margin-top: 0px;
+      }
+
+      .reason .row .col-md-6 , .reason .row .col-md-6 .col-md-5{
+        padding-left: 0px;
+      }
+
+      .footer i:hover{
+
+      }
+
+      .reason .row .col-md-6:hover{
+      		background-color: #EEEEEE !important; 
+      }
+
+      .details{
+      	display: none;
+      }
+
+      @media screen and (max-width: 780px) {
+        .navigation-bar {
+          display: none;
+
+      }
+      .mobile-nav{
+        display: block !important;
+      }
+    
+    }
+
+    .mobile-nav{
+      display: none;
+    }
+
+    .mobile-nav .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    }
+
+    .mobile-nav .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #111;
+    font-weight: bold;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .mobile-nav .sidenav .item:hover {
+    background-color: #EFEFEF;
+  }
+
+  .mobile-nav .sidenav .item{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .mobile-nav .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  </style>
+
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+
+    }
+
+</script>
+    
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    
+  </head>
+  <body>
+    
+    <div class="navigation-bar">
+      <nav class="navbar navbar-default mynav">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navitem" >
+              <li ><a href="#">Drive with ola</a></li>
+              <li ><a href="#">Ola money</a></li>
+              <li ><a href="#">Ola Corporate</a></li>
+              <li ><a href="#">Shuttle</a></li>
+              <li ><a href="#">Support</a></li>
+            </ul>
+          </div>
+      </nav>
+    
+
+      <nav class="navbar navbar-default second-nav">
+        <div class="container-fluid" >
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">VIT CAB SHARE</a>
+          </div>
+          <ul class="nav navbar-nav mynav1">
+            <li><a href="#" >Ola Select</a></li>
+            <li><a href="#" >Ola Fleet</a></li>
+            <li><a href="#" >Features</a></li>
+            <li class="active1"><a href="#" >Book Now </a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+
+    <div class="mobile-nav" style="background-color: #FAFAFA">
+      <div class="row" style="margin: 0px 0px; ">
+        <h3 style="text-align: center;font-family: 'Walter Turncoat', cursive;" onclick="openNav()" >VIT Cab Share</h2>
+
+        <div id="mySidenav" class="sidenav">
+          <a  href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a class="item" href="#">Ola Select</a>
+          <a class="item" href="#">Ola Fleet</a>
+          <a class="item" href="#">Features</a>
+          <a class="item" href="#">Book Now</a>
+          <a class="item" href="#">Drive with ola</a>
+          <a class="item" href="#">Ola money</a>
+          <a class="item" href="#">Ola Corporate</a>
+          <a class="item" href="#">Shuttle</a>
+          <a class="item" href="#">Support</a>
+        </div>
+      </div>
+    </div>
+
+<div class="main">
+
+    <div class="fullimage" style="">
+      <img src="images/img1.jpeg" style="">
+      <div class="image-item row">
+        <div class="image-box" style="">
+          <div class="tab-view" >
+            <ul  style="" >
+              <li class="col-xs-4" >City Taxi</li>
+              <li class="col-xs-4 active" >Outstation</li>
+              <li class="col-xs-4" >Rentals</li>
+            </ul>
+          </div>
+
+          <div class="image-text" style="">
+            <h1 style="">Ride out of town </h1>
+            <div class="bottom-text">
+              <h3 style="">Book and depart</h3>
+              <h3 style="">in an hour</h3>
+            </div>
+          </div>
+          <div class="image-button" style="">
+            <button class="btn btn-default" style="">Book an Outstation Cab</button>
+          </div>  
+        </div>        
+      </div>
+    </div>
+
+
+    <div class="options container">
+      <div class="row">
+        <div col-md-12>
+          <h1 style="font-size:36px; font-weight: 600;color: #000">Meet our <span>Awesome</span> Fleet</h1>
+          <h3 style="font-size:18px; font-weight: 200;color: rgb(0,0,0,0.92);opacity: 0.8; ">The widest variety of cars to choose from</h3>
+        </div>
+      </div>
+      <div class="col-md-8" style="margin-top: 50px;">
+        <div class="col-md-2 dot" onclick="currentSlide(1)">
+          <i class="fa fa-car fa-3x highlight" aria-hidden="true"></i>
+          <h5 style="text-align: center; font-weight: 600;" >Mini</h5>
+        </div>
+        <div class="col-md-2 dot" onclick="currentSlide(2)">
+          <i class="fa fa-car fa-3x highlight" aria-hidden="true"></i>
+          <h5 style="text-align: center; font-weight: 600;">Prime Sedan</h5>
+        </div>
+        <div class="col-md-2 dot" onclick="currentSlide(3)">
+          <i class="fa fa-car fa-3x highlight" aria-hidden="true"></i>
+          <h5 style="text-align: center; font-weight: 600;">Prime Play</h5>
+        </div>
+        <div class="col-md-2 dot" onclick="currentSlide(4)">
+          <i class="fa fa-car fa-3x highlight" aria-hidden="true"></i>
+          <h5 style="text-align: center; font-weight: 600;">Prime SUV</h5>
+        </div>
+        <div class="col-md-2 dot" onclick="currentSlide(5)">
+          <i class="fa fa-car fa-3x highlight" aria-hidden="true"></i>
+          <h5 style="text-align: center; font-weight: 600;">LUX</h5>
+        </div>
+        <div class="col-md-2 dot" onclick="currentSlide(6)">
+          <i class="fa fa-car fa-3x highlight" aria-hidden="true"></i>
+          <h5 style="text-align: center; font-weight: 600;">Shuttle</h5>
+        </div>
+      </div>
+    </div>
+        
+
+    <div class="car-discription container-fluid" >
+      <div class="row details " style="background-color: #EFEFEF;margin-top: 50px;" >
+        <div class="col-md-7">
+          <img src="images/mini.png" class="img-responsive" style="margin:60px auto;">
+        </div>
+        <div class="col-md-5" style="width: 350px;">
+          <h1 style="margin-top: 60px;color:#9CCC65;font-weight: bold;"><b>Mini</b></h1>
+          <h3 style="font-weight: bold">Everyday Dependible Ride</h3>
+          <p style="margin-top: 30px;">A regular comfortable AC hatchback that<br> becomes your everyday dependable ride. An <br> economical option for daily commute.</p>
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-2"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2" ><i class="fa fa-money fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></div>  
+          </div>  
+        </div>
+      </div>
+      <div class="row details " style="background-color: #EFEFEF;margin-top: 50px;">
+        <div class="col-md-7">
+          <img src="images/prime-sedan.png" class="img-responsive" style="margin:60px auto;">
+        </div>
+        <div class="col-md-5" style="width: 350px;">
+          <h1 style="margin-top: 60px;color:#9CCC65;font-weight: bold;"><b>Prime Sedan</b></h1>
+          <h3 style="font-weight: bold">Sedans with free Wi-Fi and top drivers</h3>
+          <p style="margin-top: 30px;">Top rated drivers, and a hand-picked fleet of the best cars with extra legroom and boot space.</p>
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-2"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2" ><i class="fa fa-money fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></div>  
+          </div>  
+        </div>
+      </div>
+      <div class="row details " style="background-color: #EFEFEF;margin-top: 50px;">
+        <div class="col-md-7">
+          <img src="images/prime-play.png" class="img-responsive" style="margin:60px auto;">
+        </div>
+        <div class="col-md-5" style="width: 350px;">
+          <h1 style="margin-top: 60px;color:#9CCC65;font-weight: bold;"><b>Prime Play</b></h1>
+          <h3 style="font-weight: bold">Enjoy music, radio, videos on the go</h3>
+          <p style="margin-top: 30px;">Cars with in-cab entertainment consoles that allow you to watch movies, listen to music and stay connected while on the move.</p>
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-2"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2" ><i class="fa fa-money fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></div>  
+          </div>  
+        </div>
+      </div>
+      <div class="row details " style="background-color: #EFEFEF;margin-top: 50px;">
+        <div class="col-md-7">
+          <img src="images/prime-suv.png" class="img-responsive" style="margin:60px auto;">
+        </div>
+        <div class="col-md-5" style="width: 350px;">
+          <h1 style="margin-top: 60px;color:#9CCC65;font-weight: bold;"><b>Prime SUV</b></h1>
+          <h3 style="font-weight: bold">SUVs with free Wi-Fi and top drivers</h3>
+          <p style="margin-top: 30px;">A perfect choice of car for your weekend getaways, with plenty of room for everyone including that extra bag.</p>
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-2"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2" ><i class="fa fa-money fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></div>  
+          </div>  
+        </div>
+      </div>
+      <div class="row details " style="background-color: #EFEFEF;margin-top: 50px;">
+        <div class="col-md-7">
+          <img src="images/lux.png" class="img-responsive" style="margin:60px auto;">
+        </div>
+        <div class="col-md-5" style="width: 350px;">
+          <h1 style="margin-top: 60px;color:#9CCC65;font-weight: bold;"><b>Lux</b></h1>
+          <h3 style="font-weight: bold">The new luxury ride in town</h3>
+          <p style="margin-top: 30px;">Top-of-the-line luxury cars like Mercedes, BMW, and Audis powered by auto-connect Wi-Fi, at unbeatable fares & attractive hourly rental packages.</p>
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-2"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2" ><i class="fa fa-money fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></div>  
+          </div>  
+        </div>
+      </div>
+      <div class="row details " style="background-color: #EFEFEF;margin-top: 50px;">
+        <div class="col-md-7">
+          <img src="images/shuttle.png" class="img-responsive" style="margin:60px auto;">
+        </div>
+        <div class="col-md-5" style="width: 350px;">
+          <h1 style="margin-top: 60px;color:#9CCC65;font-weight: bold;"><b>Shuttle</b></h1>
+          <h3 style="font-weight: bold">Faster, cashless and hassle-free daily commute</h3>
+          <p style="margin-top: 30px;">A hassle free way to travel everyday on fixed routes. Comes with a reserved seat and great features like free Wi-Fi, AC and cashless travel. </p>
+          <div class="row" style="margin-top: 25px;">
+            <div class="col-md-2"><i class="fa fa-star fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2" ><i class="fa fa-money fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-car fa-2x" aria-hidden="true"></i></div>
+          <div class="col-md-2"><i class="fa fa-suitcase fa-2x" aria-hidden="true"></i></div>  
+          </div>  
+        </div>
+      </div>
+    </div>
+
+    <div class="reason container">
+      <div class="row" style="margin-top: 50px;">
+        <h1 style="font-size: 36; font-weight: 600;color:#000;">Why Ride with us ?</h1>
+        <h4>A cab for every occasion and pocket</h4>
+      </div>
+      <div class="row" style="margin-top: 50px;">
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5" >
+            <img src="images/why1.jpg" class="img-responsive">  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A; font-weight: bold;">Free Wifi</h4>
+            <p>Always stay connected, even when you are on the move with Ola’s free, in-cab Wi-Fi.</p>
+          </div>
+        </div>
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5">
+            <img src="images/why2.jpg" class="img-responsive" >  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A; font-weight: bold;">Always stay connected, even when you are on the move with Ola’s free, in-cab Wi-Fi.</h4>
+            <p>Why pay for a return journey when you are travelling just one-way out of town? Book affordable AC cabs for your one-way travel or a return journey, only with Ola!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+
+        <div class="col-md-6" style="padding: 15px;">
+          
+            <div class="col-md-5">
+              <img src="images/why3.jpg" class="img-responsive" >  
+            </div>
+            <div class="col-md-7">
+              <h4 style="color: #8BC34A;font-weight: bold;">Cashless Rides</h4>
+              <p>No cash? No worries. Always enjoy non-stop cashless and hassle-free rides with Ola! Pay for your ride with Ola Money, Ola Credit or Credit/Debit Card.</p>
+            </div>
+          
+        </div>
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5">
+            <img src="images/why4.jpg" class="img-responsive" >  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A;font-weight: bold;">Affordable and Upfront Pricing</h4>
+            <p>See all expenses involved in your trip upfront before booking your cab. Economical and transparent pricing is our assurance to you.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5">
+            <img src="images/why5.jpg" class="img-responsive" >  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A;font-weight: bold;">Cabs For every pocket</h4>
+            <p>From Sedans and SUVs to Luxury cars for special occasions, we have cabs to suit every pocket.</p>
+          </div>
+        </div>
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5">
+            <img src="images/why6.jpg" class="img-responsive" >  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A;font-weight: bold;">Ola Select</h4>
+            <p>A membership program with Ola that lets you ride a Prime Sedan at Mini fares, book cabs without peak pricing and has zero wait time!</p>
+          </div>
+        </div>
+      </div>
+      <div class="row" >
+
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5">
+            <img src="images/why7.jpg" class="img-responsive" >  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A;font-weight: bold;">Safer Cars</h4>
+            <p>Verified drivers, an emergency alert button, and live ride tracking are just some of the features that Ola has in place to keep you safe and secure.</p>
+          </div>
+        </div>
+        <div class="col-md-6" style="padding: 15px;">
+          <div class="col-md-5">
+            <img src="images/why8.jpg" class="img-responsive" >  
+          </div>
+          <div class="col-md-7">
+            <h4 style="color: #8BC34A;font-weight: bold;">Rentels and Outstations</h4>
+            <p>Multiple meetings around town or a relaxed weekend getaway; wherever you want to go, now rent chauffeur-driven AC cars at the best fares you can find!</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+    <div style="background-color: ; margin-top: 25px;margin-bottom: 0px;">
+      <div class="container" style="padding-top: 30px; padding-left: 0px;">
+        <div class="col-md-6" style="background-color: #aed581; height:475px;">
+          <h1 style="color:#000;font-size: 36px; font-weight: 600;margin-top: 50px; text-align: center;">Book an Ola from the App</h1>
+          <h4 style="margin-top: 20px; text-align: center;">Download the app for exclusive deals and ease of booking</h4>
+          <div style="margin-top: 150px; margin-left: 20%">
+            <img src="images/play.JPG">
+            <img src="images/app.JPG">
+          </div>            
+        </div>
+        <div class="col-md-6">
+          <img style="margin-left: 50px;" src="images/androidios.jpg" class="img-responsive">
+        </div>
+      </div>
+    </div>
+
+    <div class="last container-fluid" style="z-index:1; margin-top:0px; border: 1px #ddd solid;box-shadow: 0px -2px 16px 0px rgba(225,225,225,0.88);">
+    	<div class="row" style="margin: 0px 28px 0 28px;">
+    		<div class="col-md-4" style="padding: 25px 0 25px 0">
+    			<div class="col-md-3">
+    				<img src="images/support.svg" style="display: inline;">
+    			</div>
+    			<div class="col-md-9">
+    				<div style="display: inline;font-size: 20px;color: #000;font-weight: 900;">24/7 Customer Support</div>
+    				<p style="font-size: 15px;">A dedicated 24x7 customer
+					support team always at your
+					service to help solve any problem</p>
+				</div>
+    		</div>
+    		<div class="col-md-4" style="padding: 25px 0 25px 0">
+    			<div class="col-md-3">
+    				<img src="images/sos.svg" style="display: inline;">
+    			</div>
+    			<div class="col-md-9">
+    				<div style="display: inline;font-size: 20px;color: #000;font-weight: 900;">Your Safety First</div>
+    				<p style="font-size: 15px;">Keep your loved ones informed about your travel routes or call emergency services when in need</p>
+				</div>
+    		</div>
+    		<div class="col-md-4" style="padding: 25px 0 25px 0">
+    			<div class="col-md-3">
+    				<img src="images/best-driver.svg" style="display: inline;">
+    			</div>
+    			<div class="col-md-9">
+    				<div style="display: inline;font-size: 20px;color: #000;font-weight: 900;">Top Rated Driver-Partners</div>
+    				<p style="font-size: 15px;">All our driver-partners are background verified and trained to deliver only the best experience</p>
+				</div>
+    		</div>
+    	</div>    	
+    </div>
+
+    <div class="footer container-fluid" style="background-color: #222222">
+    	<div class="row">
+    		<div class="icons" style="text-align: center;margin-top: 30px; ">
+	    		<i class="fa fa-facebook fa-2x" aria-hidden="true" style="margin: 0px 10px; padding: 15px;background-color: #aed581;color:#000; border-radius: 50%;width: 55px;height: 55px;"></i>
+	    		<i class="fa fa-twitter fa-2x" aria-hidden="true" style="margin: 0px 10px;padding: 15px;background-color: #aed581; color:#000;border-radius: 50%;width: 55px;height: 55px;"></i>
+	    		<i class="fa fa-instagram fa-2x" aria-hidden="true" style="margin: 0px 10px;padding: 15px;background-color: #aed581;color:#000; border-radius: 50%;width: 55px;height: 55px;"></i>
+	    		<i class="fa fa-linkedin fa-2x" aria-hidden="true" style="margin: 0px 10px;padding: 15px;background-color: #aed581;color:#000; border-radius: 50%;width: 55px;height: 55px;"></i>
+	    	</div>
+    	</div>
+
+    	<div class="row" style="margin-top: 25px;">
+    		<div class="col-md-4" style="text-align: center; color:#fff;">
+    			<h3 style="font-weight: 600;color: #aed581; ">Useful links</h3>
+    			<h5><a style="color:#fff;text-decoration: none;cursor: pointer;">Contact us</a></h5>
+				<h5><a style="color:#fff;text-decoration: none;cursor: pointer;">Portfolio</a></h5>
+				<h5><a style="color:#fff;text-decoration: none;cursor: pointer;">News</a></h5>
+				<h5><a style="color:#fff;text-decoration: none;cursor: pointer;">Vacancies</a></h5>
+    		</div>
+    		<div class="col-md-4" style="text-align: center;color:#fff;">
+    			<h3 style="font-weight: 600;color: #aed581; ">Legel</h3>
+    			<!-- #4CAF50-->
+    			<h5>Copyleft © 2017</h5>
+    			<h5>No rights reserved</h5>
+    		</div>
+    		<div class="col-md-4" style="text-align: center;color:#fff;">
+    			<h3 style="font-weight: 600;color: #aed581; ">Address</h3>
+    			<h5>K-805</h5>
+    			<h5>VIT University</h5>
+    			<h5>Vellore Tamilnadu</h5>
+    			<h5>632014</h5>
+    		</div>
+    	</div>
+    </div>
+</div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	var slideIndex = 1;
+		showSlides(slideIndex);
+
+		function currentSlide(n) {
+  		   showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+  		  var i;
+		  var slides = document.getElementsByClassName("details");
+		  var dots = document.getElementsByClassName('dot');
+		  
+		  if (n > slides.length) {slideIndex = 1} 
+		  if (n < 1) {slideIndex = slides.length}
+		  for (i = 0; i < slides.length; i++) {
+		      slides[i].style.display = "none"; 
+		  }
+
+		  for (i = 0; i < dots.length; i++) {
+		      dots[i].childNodes[1].className = dots[i].childNodes[1].className.replace(" activeoption",""); 
+		  }
+
+		  dots[slideIndex-1].childNodes[1].className += " activeoption";
+
+//		  dots[slideIndex-1].childNodes[1].style.backgroundColor = "#9CCC65";
+//		  dots[slideIndex-1].childNodes[1].style.borderRadius = "50%" 
+		  slides[slideIndex-1].style.display = "block"; 
+		  
+		}
+    </script>
+
+  </body>
+</html>
